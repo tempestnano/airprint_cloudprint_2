@@ -1,6 +1,6 @@
-COPY qemu-arm-static /usr/bin/
-arg arch=armhf
 FROM arm32v7/debian 
+arg arch=armhf
+COPY qemu-arm-static /usr/bin/
 
 #########################################
 ##         DEPENDENCY INSTALL          ##
