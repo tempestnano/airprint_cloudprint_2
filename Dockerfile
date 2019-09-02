@@ -25,11 +25,11 @@ MAINTAINER jstrader
 #########################################
 ##        ENVIRONMENTAL CONFIG         ##
 #########################################
-ENV CANON_DRIVER_URL='http://gdlp01.c-wss.com/gds/8/0100007658/08/linux-UFRII-drv-v370-uken-05.tar.gz'
+
 ENV AIRPRINT_GENERATE_URL='https://raw.githubusercontent.com/tjfontaine/airprint-generate/fb98c1ded7625b1b15cbbc0f9ac004a799c7c1a6/airprint-generate.py'
 ENV CUPS_USER_ADMIN=admin
 ENV CUPS_USER_PASSWORD=secr3t
-ENV TZ='America/Los_Angeles'
+ENV TZ='America/New_York'
 #ENV CUPS_CONFIG_DIR='/config'
 #ENV AVAHI_SERVICE_DIR='/servces'
 
@@ -119,15 +119,6 @@ RUN chmod 755 /opt/cloud-print-connector/gcp* && \
     ln -s /etc/init.d/cloud-print-connector /etc/rc4.d/S01cloud-print-connector && \
     ln -s /etc/init.d/cloud-print-connector /etc/rc5.d/S01cloud-print-connector && \
     ln -s /etc/init.d/cloud-print-connector /etc/rc6.d/K01cloud-print-connector
-
-#########################################
-##     Canon UFRII Drivers Install     ##
-#########################################
-RUN curl $CANON_DRIVER_URL | tar xz && \
-    dpkg -i *-UFRII-*/64-bit_Driver/Debian/*common*.deb && \
-    dpkg -i *-UFRII-*/64-bit_Driver/Debian/*ufr2*.deb && \
-    dpkg -i *-UFRII-*/64-bit_Driver/Debian/*utility*.deb && \
-    rm -rf *-UFRII-*
 
 #########################################
 ##         EXPORTS AND VOLUMES         ##
