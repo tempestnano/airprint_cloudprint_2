@@ -1,4 +1,4 @@
-FROM arm32v7/golang:latest as builder
+FROM arm32v7/golang as builder
 arg arch=armhf
 COPY qemu-arm-static /usr/bin/
 
