@@ -6,7 +6,7 @@ FROM arm32v7/debian
 ##         DEPENDENCY INSTALL          ##
 #########################################
 RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get -y install \
-    gcc libcups2-dev libavahi-client-dev && \
+    gcc libcups2-dev libavahi-client-dev golang && \
     rm -rf /var/lib/apt/lists/*
 
 RUN go get github.com/google/cloud-print-connector/...
