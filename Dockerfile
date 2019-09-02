@@ -6,7 +6,7 @@ COPY qemu-arm-static /usr/bin/
 ##         DEPENDENCY INSTALL          ##
 #########################################
 RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get -y install \
-    gcc libcups2-dev libavahi-client-dev golang && \
+    gcc libcups2-dev libavahi-client-dev golang git && \
     rm -rf /var/lib/apt/lists/*
 
 RUN go get github.com/google/cloud-print-connector/...
