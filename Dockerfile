@@ -1,4 +1,7 @@
 COPY qemu-arm-static /usr/bin/
+arg arch=armhf
+
+
 FROM golang:latest as builder
 
 #########################################
