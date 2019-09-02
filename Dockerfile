@@ -1,7 +1,9 @@
 COPY qemu-arm-static /usr/bin/
 arg arch=armhf
 
-
+arg goos=linux
+arg goarch=arm
+arg goarm=7
 FROM golang:latest as builder
 
 #########################################
