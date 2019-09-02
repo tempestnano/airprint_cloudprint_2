@@ -5,6 +5,9 @@ arg goos=linux
 arg goarch=arm
 arg goarm=7
 FROM golang:latest as builder
+arg goos=linux
+arg goarch=arm
+arg goarm=7
 
 #########################################
 ##         DEPENDENCY INSTALL          ##
