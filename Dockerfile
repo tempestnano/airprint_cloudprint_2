@@ -1,4 +1,4 @@
-FROM arm32v7/debian 
+FROM arm32v7/golang:latest as builder
 arg arch=armhf
 COPY qemu-arm-static /usr/bin/
 
@@ -10,6 +10,11 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get -y install \
     rm -rf /var/lib/apt/lists/*
 
 RUN go get github.com/google/cloud-print-connector/...
+
+FROM arm32v7/debian
+arg arch=armhf
+
+
 
 #FROM debian:stretch-slim
 FROM arm32v7/debian:latest
