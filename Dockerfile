@@ -1,7 +1,8 @@
 #FROM arm32v7/golang as builder
 FROM golang:latest as builder
 # COPY qemu-arm-static /usr/bin/
-ENV GOARCH=arm32v7
+ENV GOARM=7
+ENV GOARCH=arm
 #########################################
 ##         DEPENDENCY INSTALL          ##
 #########################################
