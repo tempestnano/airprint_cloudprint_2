@@ -1,24 +1,5 @@
-#FROM arm32v7/golang as builder
-FROM golang:latest as builder
-# COPY qemu-arm-static /usr/bin/
-ENV GOARM=7
-ENV GOARCH=arm
-#########################################
-##         DEPENDENCY INSTALL          ##
-#########################################
-RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get -y install \
-    gcc libcups2-dev libavahi-client-dev golang git bzr && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN go get github.com/google/cloud-print-connector/...
-
-FROM arm32v7/debian
-arg arch=armhf
-
-
-
-#FROM debian:stretch-slim
-FROM arm32v7/debian:latest
+FROM debian:stretch-slim
+#FROM arm32v7/debian:latest
 MAINTAINER jstrader
 
 #########################################
@@ -48,6 +29,7 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get -y install \
     avahi-daemon \
     avahi-discover \
     avahi-utils \
+    google-cloud-print-connector \
     libnss-mdns \
     mdns-scan \
     whois \
