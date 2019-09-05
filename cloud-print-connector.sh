@@ -17,7 +17,7 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 OPTS='--config-filename /etc/cloud-print-connector/gcp-cups-connector.config.json'
-DAEMON=/opt/cloud-print-connector
+DAEMON=/usr/bin/cloud-print-connector
 NAME=gcp-cups-connector
 PIDFILE=/var/run/$NAME/$NAME.pid
 DESC="Google Cloud Print Connector"
