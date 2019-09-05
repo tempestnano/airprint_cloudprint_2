@@ -86,13 +86,9 @@ RUN chmod +x /opt/airprint/printer-update.sh
 #########################################
 RUN useradd -s /usr/sbin/nologin -r -M cloud-print-connector && \
     mkdir -p /etc/cloud-print-connector && \
-    mkdir -p /opt/cloud-print-connector && \
-    chmod -R 777 /etc/cloud-print-connector && \
-    chmod -R 777 /opt/cloud-print-connector
-COPY --from=builder /go/bin/gcp* /opt/cloud-print-connector/
+    chmod -R 777 /etc/cloud-print-connector \
 COPY cloud-print-connector.sh /etc/init.d/cloud-print-connector
-RUN chmod 755 /opt/cloud-print-connector/gcp* && \
-    chmod 755 /etc/init.d/cloud-print-connector && \
+RUN chmod 755 /etc/init.d/cloud-print-connector && \
     ln -s /etc/init.d/cloud-print-connector /etc/rc0.d/K01cloud-print-connector && \
     ln -s /etc/init.d/cloud-print-connector /etc/rc1.d/K01cloud-print-connector && \
     ln -s /etc/init.d/cloud-print-connector /etc/rc2.d/S01cloud-print-connector && \
