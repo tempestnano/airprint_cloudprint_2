@@ -118,7 +118,7 @@ EXPOSE 515/tcp
 EXPOSE 631/tcp
 
 # Expose avahi advertisement
-EXPOSE 5353/udp
+#EXPOSE 5353/udp
 
 #########################################
 ##           Startup Command           ##
