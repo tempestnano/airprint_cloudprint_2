@@ -1,4 +1,4 @@
-# docker-ufrii-airprint
+# airprint_cloudprint
 
 Based on [debian:buster-slim](https://hub.docker.com/_/debian), this docker image installs CUPS, enables Apple AirPrint and Google Cloud Print Connector. 
 
