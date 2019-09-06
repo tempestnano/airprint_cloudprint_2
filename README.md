@@ -1,6 +1,6 @@
 # docker-ufrii-airprint
 
-Based on [debian:stretch-slim](https://hub.docker.com/_/debian), this docker image installs CUPS, enables Apple AirPrint and Google Cloud Print Connector, with support for the Cannon UFR II (UFR2) drivers. 
+Based on [debian:buster-slim](https://hub.docker.com/_/debian), this docker image installs CUPS, enables Apple AirPrint and Google Cloud Print Connector. 
 
 # What is CUPS?
 
@@ -8,7 +8,7 @@ CUPS is an open source printing system that supports IPP along with other protoc
 
 # About this image
 
-This image installs CUPS v2.2.1, builds the most recent version of the Google Cloud Print Connector (1.16 as of last release), and installs v3.7.0 of the Canon UFR II drivers. The AirPrint configuration is accomplished using the helpful script created by [Timothy J Fontaine](https://github.com/tjfontaine/airprint-generate). 
+This image installs CUPS v2.2.1 and Google Cloud Print Connector. The AirPrint configuration is accomplished using the helpful script created by [Timothy J Fontaine](https://github.com/tjfontaine/airprint-generate). 
 
 # Usage
 
@@ -20,7 +20,7 @@ docker run -rm -d -e CUPS_USER_ADMIN=admin -e CUPS_USER_PASSWORD=secr3t \
     -v /share/docker/cups/config:/etc/cups/:rw \
     -v /share/docker/cups/logs:/var/log/cups:rw \
     -v /share/docker/cups/cpc:/etc/cloud-print-connector:rw \
-    jakbutler/ufrii-airprint:2.0.0
+    jstrader/airprint-cloudprint:tagname
 ```
 
 #### docker-compose
@@ -30,7 +30,7 @@ services:
   cups:
     container_name: cups-ufrii
     hostname: cups
-    image: jakbutler/ufrii-airprint:2.0.0
+    image: jstrader/airprint-cloudprint:tagname
     restart: unless-stopped
     environment:
       CUPS_USER_ADMIN: admin
@@ -76,7 +76,7 @@ The below tables list the supported parameters for the container, not all of whi
 
 Attach to the executing container. 
 ```bash
-docker exec -it cups-ufrii /bin/bash
+docker exec -it airprint-cloudprint /bin/bash
 ```
 Navigate to the configuration directory for the cloud-print-connector and execute the configuration utility.  
 ```bash
