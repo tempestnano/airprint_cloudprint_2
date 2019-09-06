@@ -44,7 +44,7 @@ case "$1" in
 
         mkdir -p `dirname "$PIDFILE"`
 
-        start-stop-daemon --make-pidfile --background --chuid $USER --start --oknodo --pidfile "$PIDFILE" --exec $DAEMON -- $OPTS
+        start-stop-daemon --make-pidfile --background --user $USER --start --oknodo --pidfile "$PIDFILE" --exec $DAEMON -- $OPTS
         status=$?
         log_end_msg $status
         ;;
